@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+	<context:component-scan base-package="com.speridian.benefits2.controller" />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/theme1/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- Multipart support for file upload <beans:bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		setting maximum upload size <beans:property name="maxUploadSize" value="100000" 
+		/> </beans:bean> -->
+
+
+	<!-- Dao Beans -->
+	<beans:bean id="employeeDao"
+		class="com.speridian.benefits2.model.dao.EmployeeDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="dependentDao"
+		class="com.speridian.benefits2.model.dao.DependentDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="usersDao"
+		class="com.speridian.benefits2.model.dao.UserDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="usersLogDao"
+		class="com.speridian.benefits2.model.dao.UsersLogDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="treatmentDao"
+		class="com.speridian.benefits2.model.dao.TreatmentDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="usersRoleDao"
+		class="com.speridian.benefits2.model.dao.UsersRoleDaoImpl">
+	</beans:bean>
+	
+	<beans:bean id="benefitPlanEmployeeFieldsDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanEmployeeFieldsDaoImpl">
+	</beans:bean>
+	
+
+	<beans:bean id="benefitPlanDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="benefitPlanEmployeeDao"
+		class="com.speridian.benefits2.model.dao.BenefitsPlanEmployeeDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="empBenPlansYrlyOptsDao"
+		class="com.speridian.benefits2.model.dao.EmpBenPlansYrlyOptsDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="benefitsPropertyDao"
+		class="com.speridian.benefits2.model.dao.BenefitsPropertyDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="benefitPlanBandDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanBandDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="incomeTaxSlabDao"
+		class="com.speridian.benefits2.model.dao.IncomeTaxSlabDaoImpl">
+	</beans:bean>
+	<beans:bean id="hospitalDao"
+		class="com.speridian.benefits2.model.dao.HospitalDaoImpl">
+	</beans:bean>
+	<beans:bean id="insurancePlanDao"
+		class="com.speridian.benefits2.model.dao.INSPlanDaoImpl">
+	</beans:bean>
+	
+	<beans:bean id="benefitPlanCategoryDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanCategoryDaoImpl">
+	</beans:bean>
+	<beans:bean id="benefitPlanCategoryMiscDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanCategoryMiscDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="benefitPlanEmployeeDocsDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanEmployeeDocsDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="benefitPlanClaimDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanClaimDaoImpl">
+	</beans:bean>
+	<beans:bean id="benefitPlanEmployeeDetailDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanEmployeeDetailDaoImpl">
+	</beans:bean>
+	<beans:bean id="benefitPlanDependencyDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanDependencyDaoImpl">
+	</beans:bean>
+	<beans:bean id="claimDetailDao"
+		class="com.speridian.benefits2.model.dao.BenefitsPlanClaimDetailDaoImpl">
+	</beans:bean>
+	<beans:bean id="homePageNotificationDao"
+		class="com.speridian.benefits2.model.dao.HomePageNotificationDaoImpl">
+	</beans:bean>
+	<beans:bean id="benefitPlanDirectClaimDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanDirectClaimDaoImpl">
+	</beans:bean>
+	<beans:bean id="ITDeclarationDao"
+		class="com.speridian.benefits2.model.dao.ITDeclarationDaoImpl">
+	</beans:bean>
+	<beans:bean id="benefitPlanEmployeeClaimPeriodsDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanEmployeeClaimPeriodsDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="lTAEmployeeDao"
+		class="com.speridian.benefits2.model.dao.LTAEmployeeDaoImpl">
+	</beans:bean>
+
+	<beans:bean id="planDependentCategoryDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanDependentCategoryDaoImpl">
+	</beans:bean>
+	<beans:bean id="planEmployeeDependentDetailDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanEmployeeDependentDetailDaoImpl">
+	</beans:bean>
+	
+	<beans:bean id="ltaEmployeeDependentDao"
+		class="com.speridian.benefits2.model.dao.LTAEmployeeDependentDaoImpl">	
+	</beans:bean>
+	
+
+	<beans:bean id="planDenyReasonsMasterDao"
+		class="com.speridian.benefits2.model.dao.PlanDenyReasonsMasterDaoImpl">	
+	</beans:bean>
+	<beans:bean id="planEmployeeDeniesDao"
+		class="com.speridian.benefits2.model.dao.PlanEmployeeDeniesDaoImpl">	
+	</beans:bean>
+	
+	
+	<beans:bean id="itReportsDao"
+		class="com.speridian.benefits2.model.dao.ITReportDaoImpl">	
+	</beans:bean>
+	
+	<beans:bean id="historyDao"
+		class="com.speridian.benefits2.model.dao.ITDocmanHistoryDaoImpl">	
+	</beans:bean>
+	
+	<beans:bean id="insPlaNOfficeDao"
+		class="com.speridian.benefits2.model.dao.INSPlaNOfficeDaoImpl">	
+	</beans:bean>
+	
+	<beans:bean id="EmpInvestmentDetailDao"
+		class="com.speridian.benefits2.model.dao.EmpInvestmentDetailDaoImpl">
+	</beans:bean>
+	
+	<beans:bean id="YearlyEmployeeDeclarationDao"
+		class="com.speridian.benefits2.model.dao.ITEmployeeDaoImpl">
+	</beans:bean>
+	<beans:bean id="EmpRentDetailDao"
+		class="com.speridian.benefits2.model.dao.EmpRentDetailDaoImpl">
+	</beans:bean>
+	
+	
+	
+	<beans:bean id="benefitPortalFileImportDao"
+		class="com.speridian.benefits2.model.dao.BenefitPortalFileImportDaoImpl">	
+	</beans:bean>
+	
+	<beans:bean id="benefitPlanFieldDao"
+		class="com.speridian.benefits2.model.dao.BenefitPlanFieldDaoImpl">	
+	</beans:bean>
+	
+	
+	<!-- Insurance Module Daos -->
+	<beans:bean id="insPlanEmployeeDao"
+		class="com.speridian.benefits2.model.dao.INSPlanEmployeeDaoImpl">	
+	</beans:bean>
+	<beans:bean id="insPlanDao"
+		class="com.speridian.benefits2.model.dao.INSPlanDaoImpl">	
+	</beans:bean>
+	<beans:bean id="insPlanLoyaltyLevelsDao"
+		class="com.speridian.benefits2.model.dao.INSPlanLoyaltyLevelsDaoImpl">	
+	</beans:bean>
+	<beans:bean id="insPlanDepDetailsDao"
+		class="com.speridian.benefits2.model.dao.INSPlanDepDetailsDaoImpl">	
+	</beans:bean>
+	
+	<beans:bean id="insurancePlanTreatmentDetailsDao"
+		class="com.speridian.benefits2.model.dao.InsurancePlanTreatmentDetailsDaoImpl">	
+	</beans:bean>
+	<beans:bean id="insPlanEmployeeClaimDao"
+		class="com.speridian.benefits2.model.dao.INSPlanEmployeeClaimDaoImpl">	
+	</beans:bean>
+	<beans:bean id="insPlanEmployeeClaimPafDetailDaoImpl"
+		class="com.speridian.benefits2.model.dao.InsPlanEmployeeClaimPafDetailDaoImpl">	
+	</beans:bean>
+	<beans:bean id="insPlanEmployeeClaimBillDetailDao"
+		class="com.speridian.benefits2.model.dao.InsPlanEmployeeClaimBillDetailDaoImpl">	
+	</beans:bean>
+		<beans:bean id="insPlanEmployeeClaimBillDao"
+		class="com.speridian.benefits2.model.dao.InsPlanEmployeeClaimBillDaoImpl">	
+	</beans:bean>
+	
+
+		<beans:bean id="insCategoryMasterDao"
+		class="com.speridian.benefits2.model.dao.INSCategoryMasterDaoImpl">	
+	</beans:bean>
+	
+	
+	
+	
+	<!-- PF Module Dao(s) -->
+	<beans:bean id="pfEmployeeDao"
+		class="com.speridian.benefits2.model.dao.PFEmployeeDaoImpl">	
+	</beans:bean>
+	
+		<!-- NPS Module Dao(s) -->
+	<beans:bean id="npsEmployeeDao"
+		class="com.speridian.benefits2.model.dao.NPSEmployeeDaoImpl">	
+	</beans:bean>
+	
+	<!-- Rule Engine(its only LOGICAL buddy.... :-D :-P) classes -->
+	<beans:bean id="benefitPlanRE"
+		class="com.speridian.benefits2.re.BenefitPlanREImpl">
+	</beans:bean>
+	<beans:bean id="insurancePlanRE"
+		class="com.speridian.benefits2.re.InsurancePlanREImpl">
+	</beans:bean>
+	
+
+
+	<!-- Service beans -->
+	<!-- bean of Mirror Web Service -->
+	<beans:bean id="mirrorDataService"
+		class="com.speridian.benefits2.ws.client.mirror.soap.MirrorDataService">
+	</beans:bean>
+
+	<beans:bean id="employeeService"
+		class="com.speridian.benefits2.service.EmployeeServiceImpl">
+	</beans:bean>
+	<beans:bean id="dependentService"
+		class="com.speridian.benefits2.service.DependentServiceImpl">
+	</beans:bean>
+	<beans:bean id="securityService"
+		class="com.speridian.benefits2.service.SecurityServiceImpl">
+	</beans:bean>
+	<beans:bean id="benefitPlanService"
+		class="com.speridian.benefits2.service.BenefitPlanServiceImpl">
+	</beans:bean>
+	<beans:bean id="insuranceService"
+		class="com.speridian.benefits2.service.InsuranceServiceImpl">
+	</beans:bean>
+	<beans:bean id="insPlanLoyaltyService"
+		class="com.speridian.benefits2.service.INSPlanLoyaltyServiceImpl">
+	</beans:bean>
+	<beans:bean id="incomeTaxSlabService"
+		class="com.speridian.benefits2.service.IncomeTaxSlabServiceImpl">
+	</beans:bean>
+	<beans:bean id="hospitalService"
+		class="com.speridian.benefits2.service.HospitalServiceImpl">
+	</beans:bean>
+	<beans:bean id="treatmentService"
+		class="com.speridian.benefits2.service.TreatmentServiceImpl">
+	</beans:bean>
+	<beans:bean id="homePageNotificationService"
+		class="com.speridian.benefits2.service.HomePageNotificationServiceImpl">
+	</beans:bean>
+	<beans:bean id="settingsService"
+		class="com.speridian.benefits2.service.SettingsServiceImpl">
+	</beans:bean>
+	<beans:bean id="iTDeclarationService"
+		class="com.speridian.benefits2.service.ITDeclarationServiceImpl">
+	</beans:bean>
+	<beans:bean id="docmanRestClient"
+		class="com.speridian.benefits2.ws.client.docman.rest.DocmanRestClientImpl">
+	</beans:bean>
+
+	<beans:bean id="lTAService"
+		class="com.speridian.benefits2.service.LTAServiceImpl">
+	</beans:bean>	
+	
+	<beans:bean id="iTReportService"
+		class="com.speridian.benefits2.service.ITReportServiceImpl">
+	</beans:bean>
+	
+	<beans:bean id="benefitPortalFileImportService"
+		class="com.speridian.benefits2.service.BenefitPortalFileImportServiceImpl">
+	</beans:bean>
+	
+	<!-- Insurance Plan Service Beans -->
+	<beans:bean id="insPlanEmployeeService"
+		class="com.speridian.benefits2.service.INSPlanEmployeeServiceImpl">
+	</beans:bean>
+	
+	<!-- PF Service Beans -->
+	<beans:bean id="pfEmployeeService"
+		class="com.speridian.benefits2.service.PFEmployeeServiceImpl">
+	</beans:bean>
+	
+		<!-- NPS Service Beans -->
+	<beans:bean id="npsEmployeeService"
+		class="com.speridian.benefits2.service.NPSEmployeeServiceImpl">
+	</beans:bean>
+
+	<beans:bean id="multipartResolver"
+
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- setting maximum upload size -->
+		<beans:property name="maxUploadSize" value="1000000000" />
+
+	</beans:bean>
+
+
+</beans:beans>
+
+
